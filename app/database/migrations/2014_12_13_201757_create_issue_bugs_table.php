@@ -24,7 +24,7 @@ class CreateIssueBugsTable extends Migration {
             $table->date('observedDate');
             $table->string('status');
             $table->integer('solvedBy')->unsigned();
-            $table->foreign('solvedBy');
+            $table->foreign('solvedBy')->references('id')->on('users')->onDelete('cascade');
             $table->string('remarks');
 			$table->timestamps();
 		});
